@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.io</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+  </head>
+  <body>
+    
+    <script>
+
+      const myEmitter = io();
+
+      /* EVENT EMITTER FUNCTIONS CODE BLOCK*/
+
+          function connectSocket(){
+            console.log("New connection!");
+          }
+          function disconnectSocket(){
+            console.log("Socket disconnected");
+          }
+          function sendMessage(){
+            console.log("Message sent");
+          }
+
+      /**/
+
+
+      var socket;
+
+      $( document ).ready(function() {
+        console.log( "ready!" );
+
+        	//make connection
+	      socket = io.connect('http://localhost:8080')
+
+    
+      });
+
+      /*EMITTER ON CODE BLOCK*/
+
+          myEmitter.on('connect',connectSocket);
+          myEmitter.on('disconnect',disconnectSocket);
+          myEmitter.on('send',sendMessage);
+
+      /**/
+
+      const connect = () => { myEmitter.emit('connect');}  
+      const disconnect = () => { myEmitter.emit('disconnect');}
+      const send = () => { myEmitter.emit('send');}
+
+      
+    </script>
+    
+    <h1>Socket.io Lab</h1>
+    <button id="connect" onClick='connect()'/>Connect</button>
+    <button id="disconnect" onClick='disconnect()'>Disconnect</button>
+    <button id="send" onClick='send()'/>Send Message</button>
+  </body>
+</html>
