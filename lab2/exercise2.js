@@ -1,7 +1,7 @@
 var makeUpperCase = function (words) {
     return new Promise(function (resolve, reject) {
     for (var _i = 0, words_1 = words; _i < words_1.length; _i++) {
-        if(typeof words_1[_1] != string){
+        if(typeof words_1[_i] != 'string'){
             reject("Not all item on the array are strings")
         }else{
         var index = words_1[_i];

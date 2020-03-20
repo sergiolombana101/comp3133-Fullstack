@@ -8,5 +8,5 @@ var compareNumToTen = function (num) {
         }
     });
 };
-compareNumToTen(15)
+compareNumToTen(10)
     .then(function (result) { return console.log(result); })["catch"](function (error) { return console.log(error); });

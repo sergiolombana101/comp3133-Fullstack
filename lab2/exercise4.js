@@ -7,7 +7,8 @@ var delayedPromise = function (number) {
 };
 
 async function asynPromise(number){
-    const result = await delayedPromise(number)
+    await delayedPromise(number)
+    return "Waited"
 }
 delayedPromise(5)
     .then(function (result) { return console.log(result); });
